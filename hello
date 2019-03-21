@@ -1,0 +1,20 @@
+<apex:page Controller="MyController">
+<!-- Add the static resource to page's <head> -->
+    <apex:form >
+    <apex:pageBlock title="Summatti" >   
+    <apex:pageMessages ></apex:pageMessages> 
+     
+     <apex:facet name="header">
+     <span style="color:black; font-size: 20px; text-align: center;">Summatti</span></apex:facet>
+    <apex:pageBlockSection columns="20">
+Feedback:<apex:inputText value="{!content}"/>
+</apex:pageBlockSection>
+ <apex:pageBlockButtons >
+         <!-- doSubmit function is in MyController-->
+        <apex:commandButton action="{!doSubmit}" value="GO" id="goButton"/>
+ 
+              </apex:pageBlockButtons>
+              
+      </apex:pageBlock> 
+</apex:form>
+</apex:page>
