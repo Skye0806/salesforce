@@ -1,0 +1,32 @@
+public with sharing class MyController{
+
+     public PageReference doSubmit() {
+        if(content==''){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Fail'));       
+        }else{
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'Pass')); 
+  
+        }
+        return null;
+    }
+
+ public static void sendRequest(){
+         
+   HttpRequest request = new HttpRequest();
+    Http http= new Http();
+    
+    request.setEndpoint('https://app.fakejson.com/q/4VOyEvZl?token=vprANkfVqCDEMoO2C1cugg');
+    request.setMethod('POST');
+    request.setHeader('Content-Type', 'application/json;charset=UTF-8');
+
+    request.setBody('{"data":{feedback}}');
+    HttpResponse response = http.send(request);
+    
+    System.debug(response.getBody());
+
+   
+ }
+     public string content{get;set;}
+     
+  
+}
